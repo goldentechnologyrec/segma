@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline {
     agent any
     tools {
@@ -13,6 +15,17 @@ pipeline {
               '''
             }
       }
+      stage('D') {
+        steps {
+          sh 'mvn package'
+        }
+      post {
+        success {
+          sh 'cp target/*.jar /home/adm1/articatory/'
+          sh 'ansible-playbook playbook.yml'
+        }
+      }
+    }
       stage('Build de l\'api') {
         steps {
           sh 'mvn package'
@@ -20,7 +33,7 @@ pipeline {
       post {
         success {
           sh 'cp target/*.jar /home/adm1/articatory/'
-          sh 'ansible-playbook -i hosts playbook.yml'
+          sh 'ansible-playbook playbook.yml'
         }
       }
     }
