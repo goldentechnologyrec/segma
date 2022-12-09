@@ -17,7 +17,6 @@ pipeline {
         }
       post {
         success {
-          sh 'mkdir artifactory'
           sh 'cp target/*.jar artifactory/'
           sh 'ansible-playbook playbook_segma.yml'
         }
