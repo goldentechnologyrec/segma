@@ -11,7 +11,7 @@ $search_where = '';
 if(!empty($_POST['search']["value"])){
 
     $search_where = "where";
-    $search_where .= "  first_name LIKE '%{$search['value']}%' ";
+    $search_where .= "  first_name LIKE  '%{$search['value']}%' ";
     $search_where .= " OR last_name LIKE '%{$search['value']}%' ";
     $search_where .= " OR email LIKE '%{$search['value']}%' ";
 }
@@ -20,10 +20,6 @@ if($status != ''){
 	  $search_where = "where  first_name LIKE '%{$search['value']}%' ";
 	  $search_where .=  "and (groupes ='".$status."' ) ";
   }
-
-
-
-
 
 
 $columns_arr = array("id","first_name","last_name","email","age","groupes");
@@ -38,7 +34,6 @@ $data = array();
 $i= 1 + $start;
 while($row = pg_fetch_assoc($query)){
     $row['no'] = $i++;
-    $row['birthdate'] = date("d-F-Y",strtotime($row['birthdate']));
     $data[] = $row;
 }
 echo json_encode(array('draw'=>$draw,

@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect("host=192.168.1.80 port=5432  user=segma password=segma dbname=segma");
+$conn = pg_connect("host=192.168.193.139 port=5432  user=caux password=caux dbname=caux");
 if(!$conn){
     echo "Database connection failed. Error:".$conn->error;
     exit;

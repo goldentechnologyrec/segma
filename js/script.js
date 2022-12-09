@@ -15,6 +15,7 @@ $(function() {
 	    dom:  "<'row'<'col-sm-1'B><'col-sm-5'f><'col-sm'l>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             "processing": true,
             "serverSide": true,
+			 
             "ajax": {
 
                 url: "get_authors.php",
@@ -111,13 +112,15 @@ $(function() {
                     })
                 })
             },
-            buttons: [{
-                text: "Add New",
+       
+				buttons: [{
+                text: "Ajouter un(e) nouvelle etudiant(e)",
                 className: "btn btn-primary py-0",
                 action: function(e, dt, node, config) {
                     $('#add_modal').modal('show')
                 }
             }],
+
             "order": [
                 [1, "asc"]
             ],

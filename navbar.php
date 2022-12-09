@@ -9,10 +9,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Ajouter un Etudiant</a>
-        </li>
-
+        
       </ul>
       <span class="navbar-text">
         Profil Admin
