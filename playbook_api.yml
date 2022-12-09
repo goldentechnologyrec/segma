@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+  - name: copier le livrable java
+    copy:
+      src: ./artifactory/*.jar
+      dest: ~/artifact
+
+  - name: copier le script de demmarage  
+    copy:
+      src: start_api.sh
+      dest: ~/start_api.sh
+
+  - name: start the script
+    shell: "nohup ./start_api.sh &"
