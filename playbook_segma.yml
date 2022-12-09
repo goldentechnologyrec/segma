@@ -1,0 +1,14 @@
+---
+- hosts: all
+  user: adm1
+  become: yes
+  tasks:
+
+#déploiement: c'est de copier les .php .css .js .map et les dossiers idans /var/www/html de la machine cible
+
+  - name: copy les fichiers .php .css .js .map et les dossiers dans /var/www/html/
+    copy:
+      src: /home/adm1/artifactory/
+      dest: /var/www/html/
+      directory_mode: yes
+
