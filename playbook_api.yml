@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: api
   tasks:
   - name: copier le livrable java
     copy:
