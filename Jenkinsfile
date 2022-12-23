@@ -6,7 +6,7 @@ def options = [
   BRANCH_DEVELOP: 'master',
   MAVEN_VERSION : '3.5.4-jdk-8'
 ]
-def epos = sh(returnStdout: true, script: 'curl -s https://api.github.com/users/goldentechnologyrec').readLines()
+def repos = sh(returnStdout: true, script: 'curl -s https://api.github.com/users/goldentechnologyrec').readLines()
 
 timestamps {
     withTools([name: 'maven', version: "${options['MAVEN_VERSION']}"])
