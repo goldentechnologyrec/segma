@@ -5,6 +5,7 @@ pipeline {
     stages {
         stage('Checkout Repository') {
             steps {
+                
                 checkout(
                     scm: [$class: 'GitSCM', branches: [[name: '*/master']],
                     doGenerateSubmoduleConfigurations: false,
@@ -15,28 +16,28 @@ pipeline {
                 )
             }
         }
-        stage('Build Maven Project') {
+        stage('Build ${repo.name}') {
             steps {
                 sh "mvn clean install"
             }
         }
-        stage('Create Dockerfile') {
-            steps {
-                script {
-                    def jar_file = sh(returnStdout: true, script: 'find . -type f -name "*.jar"').trim()
-                    writeFile file: 'Dockerfile', text: """
-                    FROM openjdk:8-jre
-                    COPY $jar_file /app.jar
-                    CMD ["java", "-jar", "/app.jar"]
-                    """
-                }
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                sh "docker build -t apietudiant ."
-            }
-        }
+        // stage('Create Dockerfile') {
+        //     steps {
+        //         script {
+        //             def jar_file = sh(returnStdout: true, script: 'find . -type f -name "*.jar"').trim()
+        //             writeFile file: 'Dockerfile', text: """
+        //             FROM openjdk:8-jre
+        //             COPY $jar_file /app.jar
+        //             CMD ["java", "-jar", "/app.jar"]
+        //             """
+        //         }
+        //     }
+        // }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         sh "docker build -t apietudiant ."
+        //     }
+        // }
     }
 }
 
