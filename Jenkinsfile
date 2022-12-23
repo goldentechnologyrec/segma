@@ -16,10 +16,14 @@ pipeline {
                 )
             }
         }
-        stage('Build ${repo.name}') {
+        stage('Build API Etudiant') {
             steps {
                 sh "mvn clean install"
             }
+        }
+
+        stage('Send to Front server'){
+            sh"sshpass -p 'adm1' scp apiEtudiant-1.jar adm1@192.168.1.59:~/jars"
         }
         // stage('Create Dockerfile') {
         //     steps {
