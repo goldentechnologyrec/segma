@@ -1,7 +1,5 @@
 #!groovy
 
-@Library('build_libs') _
-
 def options = [
 
   NUM_TO_KEEP   : 10,
