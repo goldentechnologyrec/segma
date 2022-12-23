@@ -1,10 +1,17 @@
 #!groovygit
 
+def options = [
+
+  NUM_TO_KEEP   : 10,
+  BRANCH_DEVELOP: 'master',
+  MAVEN_VERSION : '3.5.4-jdk-8'
+]
+def epos = sh(returnStdout: true, script: 'curl -s https://api.github.com/users/goldentechnologyrec').readLines()
 
 timestamps {
+    withTools([name: 'maven', version: "${options['MAVEN_VERSION']}"])
     agent any
     stages {
-        def repos = sh(returnStdout: true, script: 'curl -s https://api.github.com/users/goldentechnologyrec').readLines()
         stage('Checkout Repositories') {
             steps {
                 script {
@@ -27,26 +34,26 @@ timestamps {
             steps {
                 script {
                     for (repo in repos) {
-                        if (repo.language == "Java") {
-                            sh "mvn clean install"
+                        if (repo.language == 'Java') {
+                            sh 'mvn clean install'
                         }
                     }
                 }
             }
         }
 
-        // stage('Containerize with Docker') {
-        //     steps {
-        //         script {
-        //             for (repo in repos) {
-        //                 if (repo.language == "Java") {
-        //                     sh "docker build -t ${repo.name} .
-        //                     docker push ${repo.name}"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+    // stage('Containerize with Docker') {
+    //     steps {
+    //         script {
+    //             for (repo in repos) {
+    //                 if (repo.language == "Java") {
+    //                     sh "docker build -t ${repo.name} .
+    //                     docker push ${repo.name}"
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     }
 }
 
