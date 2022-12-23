@@ -24,7 +24,7 @@ pipeline {
 
         stage('Send to Front server'){
             steps {
-                sh"sshpass -p 'adm1' scp apiEtudiant-1.jar adm1@192.168.1.59:~/jars/"
+                sh"sshpass -p 'adm1' scp target/apiEtudiant-1.jar adm1@192.168.1.59:~/jars/"
             }
         }
         // stage('Create Dockerfile') {
