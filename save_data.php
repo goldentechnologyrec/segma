@@ -2,7 +2,7 @@
 include ('connect.php');
 extract($_POST);
 
-$query = pg_query($conn,"INSERT INTO authors (first_name,last_name,email,age,groupes) VALUES ('{$first_name}','{$last_name}','{$email}','{$age}','{$groupes}')");
+$query = pg_query($conn,"INSERT INTO authors (first_name,last_name,email,telephone,groupes) VALUES ('{$first_name}','{$last_name}','{$email}','{$telephone}','{$groupes}')");
 if($query){
     $resp['status'] = 'success';
 }else{
