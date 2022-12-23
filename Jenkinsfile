@@ -42,18 +42,18 @@ timestamps {
             }
         }
 
-        stage('Containerize with Docker') {
-            steps {
-                script {
-                    for (repo in repos) {
-                        if (repo.language == "Java") {
-                            sh "docker build -t ${repo.name} .
-                            docker push ${repo.name}"
-                        }
-                    }
-                }
-            }
-        }
+        // stage('Containerize with Docker') {
+        //     steps {
+        //         script {
+        //             for (repo in repos) {
+        //                 if (repo.language == "Java") {
+        //                     sh "docker build -t ${repo.name} .
+        //                     docker push ${repo.name}"
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
 
