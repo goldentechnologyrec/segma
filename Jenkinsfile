@@ -22,7 +22,7 @@ timestamps {
                                         doGenerateSubmoduleConfigurations: false,
                                         extensions: [],
                                         submoduleCfg: [],
-                                        userRemoteConfigs: [[credentialsId: '<credentials_id>',
+                                        userRemoteConfigs: [[credentialsId: 'github_idx',
                                         url: "https://github.com/goldentechnologyrec/${repo.name}.git"]]]
                                 )
                         }
