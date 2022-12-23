@@ -1,15 +1,10 @@
-#!groovy
+#!groovygit
 
-def options = [
 
-  NUM_TO_KEEP   : 10,
-  BRANCH_DEVELOP: 'master',
-  MAVEN_VERSION : '3.5.3-jdk-8'
-]
 timestamps {
     agent any
-    def repos = sh(returnStdout: true, script: 'curl -s https://api.github.com/users/goldentechnologyrec').readLines()
     stages {
+        def repos = sh(returnStdout: true, script: 'curl -s https://api.github.com/users/goldentechnologyrec').readLines()
         stage('Checkout Repositories') {
             steps {
                 script {
