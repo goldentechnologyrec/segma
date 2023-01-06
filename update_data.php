@@ -2,7 +2,7 @@
 require_once('connect.php');
 extract($_POST);
 
-$update = pg_query($conn, "UPDATE authors set first_name = '{$first_name}', last_name = '{$last_name}', email = '{$email}',age = '{$age}', groupes = '{$groupes}' where id = '{$id}'");
+$update = pg_query($conn, "UPDATE authors set first_name = '{$first_name}', last_name = '{$last_name}', email = '{$email}',telephone = '{$telephone}', groupes = '{$groupes}' where id = '{$id}'");
 if($update){
     $resp['status'] = 'success';
 }else{

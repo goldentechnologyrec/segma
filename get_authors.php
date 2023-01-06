@@ -23,7 +23,7 @@ if($status != ''){
   }
 
 
-$columns_arr = array("id","first_name","last_name","email","age","groupes");
+$columns_arr = array("id","first_name","last_name","email","telephone","groupes");
 $query =pg_query($conn, "SELECT * FROM  authors $search_where ORDER BY {$columns_arr[$order[0]['column']]} {$order[0]['dir']} limit {$length} offset {$start}");
 $r = "SELECT * FROM authors $search_where"; 
 $sql =  pg_query($conn,$r);

@@ -87,7 +87,7 @@ include("connect.php");
                             <th class="px-1 py-1 text-center">First Name</th>
                             <th class="px-1 py-1 text-center">Last Name</th>
 			                <th class="px-1 py-1 text-center">Email</th>
-                            <th class="px-1 py-1 text-center">Age</th>
+                            <th class="px-1 py-1 text-center">Telephone</th>
                              <th class="px-1 py-1 text-center">Groupes</th>
                             <th class="px-1 py-1 text-center">Action</th>
                         </tr>
@@ -121,8 +121,8 @@ include("connect.php");
                                 <input type="email" class="form-control rounded-0" id="email" name="email" required>
 			    </div>
                             <div class="form-group">
-                                <label for="age" class="control-label">Age</label>
-                                <input type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true"  class="form-control rounded-0" id="age" name="age" required>
+                                <label for="telephone" class="control-label">Telephone</label>
+                                <input type="text" class="form-control rounded-0" id="telephone" name="telephone" required>
                             </div>
 							<div class="form-group">
                                 <label for="groupes" class="control-label">Groupes</label>
@@ -172,8 +172,8 @@ include("connect.php");
                                 <input type="text" class="form-control rounded-0" id="email" name="email" required>
 			    </div>
                             <div class="form-group">
-                                <label for="age" class="control-label">Age</label>
-                                <input type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true"  class="form-control rounded-0" id="age" name="age" required>
+                                <label for="telephone" class="control-label">Telephone</label>
+                                <input type="text"   class="form-control rounded-0" id="telephone" name="telephone" required>
                             </div>
 							<div class="form-group">
                                 <label for="groupes" class="control-label">Groupes</label>
